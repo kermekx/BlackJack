@@ -26,7 +26,8 @@ public class Main {
 					nbrJoueurs = entry;
 				
 			} catch (Exception ex) {
-				System.out.println(nJ + " n'est pas reconnue");
+				if (nJ == null)
+					System.exit(0);
 			}
 			
 			
@@ -34,8 +35,12 @@ public class Main {
 		
 		List<Joueur> joueurs = new ArrayList<Joueur>();
 		
-		for (int i = 0; i < nbrJoueurs; i ++)
-			joueurs.add(new Joueur(JOptionPane.showInputDialog(null, "Entrez le nom du joueur " + (i + 1))));
+		for (int i = 0; i < nbrJoueurs; i ++) {
+			String nomJ = JOptionPane.showInputDialog(null, "Entrez le nom du joueur " + (i + 1));
+			joueurs.add(new Joueur(nomJ));
+			if (nomJ == null)
+				System.exit(0);
+		}
 		
 		Jeu jeu = new Jeu(joueurs);
 		

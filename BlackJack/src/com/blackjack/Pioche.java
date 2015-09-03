@@ -9,7 +9,7 @@ public class Pioche {
 	private List<Carte> cartes;
 	
 	/*
-	 * génère un paquet de 52 cartes aléatoire
+	 * génère un paquet de 52 cartes aléatoires
 	 * sans doublons
 	 */
 	public Pioche() {

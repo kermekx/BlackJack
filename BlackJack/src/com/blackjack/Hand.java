@@ -36,11 +36,7 @@ public class Hand {
 		cartes.remove(carte);
 	}
 	public String toString(){
-		String res="";
-		for(int i=0; i<cartes.size()-1;i++){
-			res=res+cartes.get(i)+"\n";
-		}
-		return res;
+		return cartes.toString();
 	}
 
 	public void ajouterCarte(Carte carte) {
@@ -51,6 +47,7 @@ public class Hand {
 		return cartes.size();
 	}
 	
+
 	public List<Valeur> getValeurs(){
 		List<Valeur> val = new ArrayList<Valeur>();
 		for(int i =0; i<cartes.size()-1;i++){
@@ -59,3 +56,5 @@ public class Hand {
 		return val;
 	}
 }
+
+

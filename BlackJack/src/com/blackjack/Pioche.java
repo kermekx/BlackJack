@@ -9,7 +9,7 @@ public class Pioche {
 	private List<Carte> cartes;
 	
 	/*
-	 * génère un paquet de 52 cartes aléatoires
+	 * génère un paquet de 52 cartes aléatoire
 	 * sans doublons
 	 */
 	public Pioche() {
@@ -17,13 +17,20 @@ public class Pioche {
 
 		cartes = new ArrayList();
 		
-		for (Valeur valeur : Valeur.values())
-			for (Couleur couleur : Couleur.values())
-				cartes.add(new Carte(couleur, valeur));
+		initPioche();
 		
 		this.shuffle();
 		
 	}
+
+
+	public void initPioche() {
+		cartes.clear();
+		for (Valeur valeur : Valeur.values())
+			for (Couleur couleur : Couleur.values())
+				cartes.add(new Carte(couleur, valeur));
+	}
+	
 	
 	/**
 	 * mélange le paquet de carte

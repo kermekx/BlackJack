@@ -17,10 +17,18 @@ public class Carte {
 		return valeur;
 		
 	}
+	
+public boolean equals(Carte carte){
+	if(carte.couleur.equals(this.couleur) && carte.valeur.equals(this.valeur)){
+		return true;
+	}
+	else return false;
 
+	
+}
 	@Override
 	public String toString() {
-		return "Carte [couleur=" + couleur + ", valeur=" + valeur + "]\n";
+		return "Carte [couleur=" + couleur + ", valeur=" + valeur + "]";
 	}
 	
 	

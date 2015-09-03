@@ -12,24 +12,40 @@ public class Joueur {
 		this.pts = 0;
 		this.hand = new Hand();
 	}
-
+	/**
+	 * 
+	 * @return 
+	 */
 	public String getPseudo() {
 		return pseudo;
 	}
-
+	/**
+	 * Modifie le pseudo du joueur
+	 * @param pseudo - pseudo de remplacement
+	 */
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
 
+	 /**
+	  * Retourne les points du joueur
+	  * @return les points des joueurs
+	  */
 	public int getPts() {
 		return pts;
 	}
-
+/**
+ * Modifie les points du joueurs par ceux en paramètres
+ * @param pts - Points qui vont remplacer ceux du joueur
+ */
 	public void setPts(int pts) {
 		this.pts = pts;
 	}
 	
-	
+	/*
+	 * Méthode toString qui retourne les infos du joueur
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString() {
 		return ""+ this.pseudo
 				+ ", points: " + this.pts + ". Main : " + this.hand.toString();
@@ -41,7 +57,6 @@ public class Joueur {
 	 */
 	public void prendreCarte(){
 		this.hand.ajouterCarte(Main.pioche.piocherCarte());
-		
 	}
 	
 	public static void main(String[] args) {

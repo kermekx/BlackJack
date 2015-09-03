@@ -1,3 +1,4 @@
+package com.blackjack;
 public class Joueur {
 
 	String nom, prenom, pseudo;

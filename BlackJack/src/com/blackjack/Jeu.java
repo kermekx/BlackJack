@@ -27,9 +27,7 @@ public class Jeu {
 
 		while (!fini()) {
 			tour();
-		}
-		
-		
+		}		
 
 	}
 

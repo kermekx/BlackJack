@@ -36,5 +36,6 @@ public enum Valeur {
 		return points;
 
 	}
+	
 
 }

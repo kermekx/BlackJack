@@ -17,13 +17,20 @@ public class Pioche {
 
 		cartes = new ArrayList();
 		
-		for (Valeur valeur : Valeur.values())
-			for (Couleur couleur : Couleur.values())
-				cartes.add(new Carte(couleur, valeur));
+		initPioche();
 		
 		this.shuffle();
 		
 	}
+
+
+	public void initPioche() {
+		cartes.clear();
+		for (Valeur valeur : Valeur.values())
+			for (Couleur couleur : Couleur.values())
+				cartes.add(new Carte(couleur, valeur));
+	}
+	
 	
 	/**
 	 * mélange le paquet de carte

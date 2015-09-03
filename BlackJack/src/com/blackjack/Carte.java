@@ -20,7 +20,7 @@ public class Carte {
 
 	@Override
 	public String toString() {
-		return "Carte [couleur=" + couleur + ", valeur=" + valeur + "]\n";
+		return "Carte [couleur=" + couleur + ", valeur=" + valeur + "]";
 	}
 	
 	

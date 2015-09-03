@@ -36,11 +36,7 @@ public class Hand {
 		cartes.remove(carte);
 	}
 	public String toString(){
-		String res="";
-		for(int i=0; i<cartes.size()-1;i++){
-			res=res+cartes.get(i);
-		}
-		return res;
+		return cartes.toString();
 	}
 
 	public void ajouterCarte(Carte carte) {

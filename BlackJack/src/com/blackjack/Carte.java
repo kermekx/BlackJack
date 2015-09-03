@@ -4,12 +4,6 @@ public class Carte {
 	
 	Couleur couleur;
 	Valeur valeur;
-	
-	/**
-	 * Constructeur d'une carte
-	 * @param couleur - Couleur de la carte : Rouge (Carrreau, coeur) ou Noire (Pique,Trèfle)
-	 * @param valeur - La valeur de la carte de AS à ROI
-	 */
 	public Carte (Couleur couleur, Valeur valeur){
 		this.couleur = couleur;
 		this.valeur=valeur;

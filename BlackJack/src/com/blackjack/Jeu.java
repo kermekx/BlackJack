@@ -7,69 +7,77 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class Jeu {
-	
+
 	private List<Joueur> joueurs;
-	private Map<Joueur, String> fini = new HashMap<Joueur, String>();
-	
+	private Map<Joueur, StringBuffer> fini = new HashMap<Joueur, StringBuffer>();
+
 	private Pioche pioche;
-	
+
 	public Jeu(List<Joueur> joueurs) {
-		
+
 		this.joueurs = joueurs;
-		
+
 		pioche = new Pioche();
-		
+
 		this.initHands();
-		
-		for(Joueur joueur : joueurs) {
+
+		for (Joueur joueur : joueurs) {
 			System.out.println(joueur.toString());
 		}
-		
+
 		while (!fini()) {
 			tour();
 		}
 		
-	}
-	
-	public void initHands() {
 		
+
+	}
+
+	public void initHands() {
+
 		for (Joueur joueur : joueurs) {
 			joueur.prendreCarte(pioche.piocherCarte());
 			joueur.prendreCarte(pioche.piocherCarte());
-			fini.put(joueur, "false");
+			fini.put(joueur, new StringBuffer("f"));
 		}
-		
+
 	}
-	
+
 	public boolean fini() {
-		
+
 		boolean fin = true;
-		
+
 		for (Joueur joueur : joueurs)
-			if (fini.get(joueur).equals("false"))
+			if (fini.get(joueur).charAt(0) == 'f')
 				fin = false;
-		
+
 		return fin;
-		
+
 	}
-	
+
 	public void tour() {
 		for (Joueur joueur : joueurs)
-			if (fini.get(joueur).equals("false")) {
-				
+			if (fini.get(joueur).charAt(0) == 'f') {
+
 				int entry = -1;
 				do {
-					entry = JOptionPane.showConfirmDialog(null, joueur.toString() + "\n  Voulez vous piocher?");
+					entry = JOptionPane.showConfirmDialog(null,
+							joueur.toString() + "\n  voulez vous piocher?");
 				} while (entry < 0 && entry > 1);
-				
-				if (entry == 0)
-					joueur.prendreCarte(pioche.piocherCarte());
-				else
-					fini.get(joueur).replaceAll("false", "true");
-				
+
+				if (entry == 0) {
+					Carte tirage = pioche.piocherCarte();
+					JOptionPane.showMessageDialog(null, "Vous avez pioché : " + tirage);
+					joueur.prendreCarte(tirage);
+					if (joueur.getPts() > 21) {
+						fini.get(joueur).setCharAt(0, 't');
+						JOptionPane.showMessageDialog(null, "Vous avez perdu! Votre score est de " + joueur.getPts());
+					}
+				} else
+					fini.get(joueur).setCharAt(0, 't');
+
 			}
-				
-		
+
 	}
 
 }

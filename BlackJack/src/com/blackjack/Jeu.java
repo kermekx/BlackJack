@@ -29,6 +29,8 @@ public class Jeu {
 			tour();
 		}
 		
+		for (Joueur joueur : joueurs)
+			JOptionPane.showMessageDialog(null, joueur.getPseudo() + " a fait "+joueur.getPts()+" points.");
 		
 
 	}

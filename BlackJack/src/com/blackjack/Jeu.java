@@ -23,7 +23,7 @@ public class Jeu {
 	public void initHands() {
 		
 		for (Joueur joueur : joueurs) {
-			
+			joueur.
 		}
 		
 	}

@@ -1,27 +1,52 @@
 package com.blackjack;
+
 public class Joueur {
 
-	String nom, prenom, pseudo;
+	String pseudo;
 	int pts;
 	Hand hand;
 
-	public Joueur(String nom, String prenom, String pseudo) {
+	public Joueur(String pseudo) {
 		// TODO Auto-generated constructor stub
-		this.nom = nom;
-		this.prenom = prenom;
 		this.pseudo = pseudo;
 		this.pts = 0;
 		this.hand = new Hand();
 	}
 
-	public String toString() {
-		return "" + this.nom + " " + this.prenom + " (" + this.pseudo
-				+ "). Points: " + this.pts + ". Main : " + this.hand.toString();
+	public String getPseudo() {
+		return pseudo;
 	}
 
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
+
+	public int getPts() {
+		return pts;
+	}
+
+	public void setPts(int pts) {
+		this.pts = pts;
+	}
+	
+	
+	public String toString() {
+		return ""+ this.pseudo
+				+ ", points: " + this.pts + ". Main : " + this.hand.toString();
+	}
+	
+	/*
+	 * Le joueur pioche la premiere carte du paquet et l'ajoute à sa main
+	 * 
+	 */
+	public void prendreCarte(){
+		this.hand.ajouterCarte(Main.pioche.piocherCarte());
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Joueur toto = new Joueur("Toto", "Titi", "Tata");
+		Joueur toto = new Joueur("Toto");
 		System.out.println(toto.toString());
 	}
 

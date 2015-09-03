@@ -21,6 +21,7 @@ public class Pioche {
 			for (Couleur couleur : Couleur.values())
 				cartes.add(new Carte(couleur, valeur));
 		
+		this.shuffle();
 		
 	}
 	

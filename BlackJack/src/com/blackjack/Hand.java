@@ -28,8 +28,8 @@ public class Hand {
 		this.pts = pts;
 	}
 
-	public void ajoutCarte(Carte carte) {
-		cartes.add(carte);
+	public void ajoutCarte(Pioche carte) {
+		cartes.add(carte.piocherCarte());
 	}
 
 	public void retirerCarte(Carte carte) {

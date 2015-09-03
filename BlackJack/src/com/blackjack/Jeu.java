@@ -48,7 +48,7 @@ public class Jeu {
 		else if (gagnant == null)
 			JOptionPane.showMessageDialog(null, "Pas de gagnant! Tout le monde a depasse 21!");
 		else {
-			JOptionPane.showMessageDialog(null, gagnant.getPseudo() + " a gagner avec " + max + " points!");
+			JOptionPane.showMessageDialog(null, gagnant.getPseudo() + " a gagné avec " + max + " points!");
 		}
 	}
 

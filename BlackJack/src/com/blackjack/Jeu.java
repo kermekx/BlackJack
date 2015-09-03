@@ -60,15 +60,16 @@ public class Jeu {
 		for (Joueur joueur : joueurs) {
 			joueur.prendreCarte(pioche.piocherCarte());
 			joueur.prendreCarte(pioche.piocherCarte());
-			/*
-			 * if (joueur.getPts() == 21) { Joueur gagnant = new Joueur("");
-			 * fini.get(joueur).setCharAt(0, 't');
-			 * gagnant.setPseudo(joueur.getPseudo());
-			 * JOptionPane.showMessageDialog(null, "BLACKJACK ! Bien joué " +
-			 * joueur.getPseudo() + "!"); }
-			 */
 			fini.put(joueur, new StringBuffer("f"));
+		}
 
+		for (Joueur joueur : joueurs) {
+			if (joueur.getPts() == 21) {
+				for (Joueur j : joueurs)
+					fini.get(j).setCharAt(0, 't');
+				JOptionPane.showMessageDialog(null, "BLACKJACK ! Bien joué "
+						+ joueur.getPseudo() + "!");
+			}
 		}
 
 	}

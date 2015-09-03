@@ -44,7 +44,7 @@ public boolean equals(Carte carte){
 	 * Retourne les informations de la carte : la valeur et sa couleur
 	 */
 	public String toString() {
-		return "Carte [couleur=" + couleur + ", valeur=" + valeur + "]";
+		return ""+ valeur +" de "+couleur;
 	}
 	
 	

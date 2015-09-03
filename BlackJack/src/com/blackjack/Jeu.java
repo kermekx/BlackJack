@@ -59,7 +59,7 @@ public class Jeu {
 				
 				int entry = -1;
 				do {
-					entry = JOptionPane.showConfirmDialog(null, joueur.toString() + "\n  voulez vous piochez?");
+					entry = JOptionPane.showConfirmDialog(null, joueur.toString() + "\n  Voulez vous piocher?");
 				} while (entry < 0 && entry > 1);
 				
 				if (entry == 0)

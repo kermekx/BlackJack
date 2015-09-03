@@ -28,7 +28,7 @@ public boolean equals(Carte carte){
 }
 	@Override
 	public String toString() {
-		return "Carte [couleur=" + couleur + ", valeur=" + valeur + "]\n";
+		return "Carte [couleur=" + couleur + ", valeur=" + valeur + "]";
 	}
 	
 	

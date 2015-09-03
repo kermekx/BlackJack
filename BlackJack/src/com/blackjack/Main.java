@@ -1,27 +1,22 @@
 package com.blackjack;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
 	
-	static Joueur j1;
-	
-	public static void startGame(){
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Veuillez entrer votre pseudo pour cette partie : ");
-		String pseudo = sc.nextLine();
-		j1 = new Joueur(pseudo);
-		System.out.println("Bienvenue sur le jeu du BlackJack "+j1.getPseudo()+", la partie va commencer." );
-		
-	}
+
 	public static void main(String[] args) {
-		Pioche pioche = new Pioche();
 		
-
-
-	//	System.out.println(pioche);
-		startGame();
+		List<Joueur> joueurs = new ArrayList<Joueur>();
+		
+		joueurs.add(new Joueur("Corwin"));
+		
+		joueurs.add(new Joueur("Kevin"));
+		
+		Jeu jeu = new Jeu(joueurs);
+		
 	}
 
 }

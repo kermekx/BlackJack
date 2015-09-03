@@ -29,10 +29,27 @@ public class Jeu {
 			tour();
 		}
 		
-		for (Joueur joueur : joueurs)
-			JOptionPane.showMessageDialog(null, joueur.getPseudo() + " a fait "+joueur.getPts()+" points.");
+		Joueur gagnant = null;
+		int max = 0;
+		boolean egalite = false;
 		
-
+		for (Joueur joueur : joueurs) {
+			if (joueur.getPts() < 22 && joueur.getPts() > max) {
+				gagnant = joueur;
+				max = joueur.getPts();
+				egalite = false;
+			} else if (joueur.getPts() == max) {
+				egalite = true;
+			}
+		}
+			
+		if (egalite)
+			JOptionPane.showMessageDialog(null, "Pas de gagnant suite a une egalite!");
+		else if (gagnant == null)
+			JOptionPane.showMessageDialog(null, "Pas de gagnant! Tout le monde a depasse 21!");
+		else {
+			JOptionPane.showMessageDialog(null, gagnant.getPseudo() + " a gagner avec " + max + " points!");
+		}
 	}
 
 	public void initHands() {

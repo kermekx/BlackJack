@@ -97,7 +97,7 @@ public class Jeu {
 					if (joueur.getPts() == 21) {
 						fini.get(joueur).setCharAt(0, 't');
 						gagnant.setPseudo(joueur.getPseudo());
-						JOptionPane.showMessageDialog(null, "Vous avez fait "+joueur.getPts()+", vous avez donc gagnez! \nBravo "+gagnant.getPseudo());
+						JOptionPane.showMessageDialog(null, "Vous avez fait "+joueur.getPts()+"!");
 						
 					}
 				} else

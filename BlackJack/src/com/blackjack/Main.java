@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 	
 	static Joueur j1;
-	
+	static Pioche pioche = new Pioche();
 	public static void startGame(){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Veuillez entrer votre pseudo pour cette partie : ");
@@ -16,12 +16,10 @@ public class Main {
 		
 	}
 	public static void main(String[] args) {
-		Pioche pioche = new Pioche();
+	
 		
-
-
-	//	System.out.println(pioche);
 		startGame();
+		//System.out.println(pioche);
 	}
 
 }

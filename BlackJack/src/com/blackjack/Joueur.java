@@ -28,12 +28,22 @@ public class Joueur {
 	public void setPts(int pts) {
 		this.pts = pts;
 	}
-
+	
+	
 	public String toString() {
 		return ""+ this.pseudo
 				+ ", points: " + this.pts + ". Main : " + this.hand.toString();
 	}
-
+	
+	/*
+	 * Le joueur pioche la premiere carte du paquet et l'ajoute à sa main
+	 * 
+	 */
+	public void prendreCarte(){
+		this.hand.ajouterCarte(Main.pioche.piocherCarte());
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Joueur toto = new Joueur("Toto");

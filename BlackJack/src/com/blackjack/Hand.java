@@ -42,5 +42,10 @@ public class Hand {
 		}
 		return res;
 	}
+
+	public void ajouterCarte(Carte carte) {
+		cartes.add(carte);
+		
+	}
 	
 }

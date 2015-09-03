@@ -18,8 +18,9 @@ public class Carte {
 		
 	}
 	
-public boolean equals(Carte carte){
-	if(carte.couleur.equals(this.couleur) && carte.valeur.equals(this.valeur)){
+public boolean equals(Object carte){
+	Carte toCompare = (Carte) carte;
+	if(toCompare.couleur.equals(this.couleur) && toCompare.valeur.equals(this.valeur)){
 		return true;
 	}
 	else return false;

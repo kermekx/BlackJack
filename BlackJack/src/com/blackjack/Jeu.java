@@ -73,7 +73,7 @@ public class Jeu {
 					joueur.prendreCarte(tirage);
 					if (joueur.getPts() > 21) {
 						fini.get(joueur).setCharAt(0, 't');
-						JOptionPane.showMessageDialog(null, joueur.getPseudo()+" a perdu! Son score est de " + joueur.getPts());
+						JOptionPane.showMessageDialog(null, "Vous avez perdu! Votre score est de " + joueur.getPts());
 					}
 					if (joueur.getPts() == 21) {
 						fini.get(joueur).setCharAt(0, 't');
@@ -81,9 +81,7 @@ public class Jeu {
 						JOptionPane.showMessageDialog(null, "Vous avez fait "+joueur.getPts()+", vous avez donc gagnez! \nBravo "+gagnant.getPseudo());
 						
 					}
-				} 
-				
-				else
+				} else
 					fini.get(joueur).setCharAt(0, 't');
 
 			}

@@ -17,6 +17,11 @@ public class Carte {
 		return valeur;
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Carte [couleur=" + couleur + ", valeur=" + valeur + "]\n";
+	}
 	
 	
 }

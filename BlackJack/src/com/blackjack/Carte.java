@@ -15,6 +15,7 @@ public class Carte {
 	
 	public Valeur getValeur(){
 		return valeur;
+		
 	}
 	
 	

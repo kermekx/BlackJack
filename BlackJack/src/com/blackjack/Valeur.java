@@ -14,7 +14,9 @@ public enum Valeur {
 
 	/**
 	 * créé l'enumeration des valeurs
-	 * @param points des valeurs
+	 * 
+	 * @param points
+	 *            des valeurs
 	 */
 	private Valeur(int points) {
 
@@ -23,9 +25,11 @@ public enum Valeur {
 	}
 
 	/**
-	 * calcule le nombre de points optimale d'une liste de valeur
-	 * en choisisant 1 ou 11 pour les as de la meilleur facon possible
-	 * @param liste de valeur de la main
+	 * calcule le nombre de points optimale d'une liste de valeur en choisisant
+	 * 1 ou 11 pour les as de la meilleur facon possible
+	 * 
+	 * @param liste
+	 *            de valeur de la main
 	 * @return valeur de la main
 	 */
 	public static int getPoints(List<Valeur> valeurs) {
@@ -36,19 +40,18 @@ public enum Valeur {
 		for (Valeur valeur : valeurs) {
 			points += valeur.points;
 			if (valeur == AS)
-				nbrAs ++;
+				nbrAs++;
 		}
-		
+
 		while (nbrAs > 0) {
 			if (points <= 11)
 				points += 10;
-			
-			nbrAs --;
+
+			nbrAs--;
 		}
 
 		return points;
 
 	}
-	
 
 }

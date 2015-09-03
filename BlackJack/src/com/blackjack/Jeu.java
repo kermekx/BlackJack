@@ -56,6 +56,8 @@ public class Jeu {
 	}
 
 	public void tour() {
+		Joueur gagnant=new Joueur("");
+		
 		for (Joueur joueur : joueurs)
 			if (fini.get(joueur).charAt(0) == 'f') {
 
@@ -72,6 +74,12 @@ public class Jeu {
 					if (joueur.getPts() > 21) {
 						fini.get(joueur).setCharAt(0, 't');
 						JOptionPane.showMessageDialog(null, "Vous avez perdu! Votre score est de " + joueur.getPts());
+					}
+					if (joueur.getPts() == 21) {
+						fini.get(joueur).setCharAt(0, 't');
+						gagnant.setPseudo(joueur.getPseudo());
+						JOptionPane.showMessageDialog(null, "Vous avez fait "+joueur.getPts()+", vous avez donc gagnez! \nBravo "+gagnant.getPseudo());
+						
 					}
 				} else
 					fini.get(joueur).setCharAt(0, 't');

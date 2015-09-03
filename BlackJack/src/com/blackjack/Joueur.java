@@ -36,7 +36,7 @@ public class Joueur {
 	  * @return les points des joueurs
 	  */
 	public int getPts() {
-		pts=pts+Valeur.getPoints(this.hand.getValeurs());
+		pts=Valeur.getPoints(this.hand.getValeurs());
 		return pts;
 	}
 /**
@@ -53,7 +53,7 @@ public class Joueur {
 	 */
 	public String toString() {
 		return ""+ this.pseudo
-				+ ", points: " + this.pts + ". Main : " + this.hand.toString();
+				+ ", points: " + this.getPts() + ". Main : " + this.hand.toString();
 	}
 	
 	/*

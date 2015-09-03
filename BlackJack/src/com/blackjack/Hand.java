@@ -50,9 +50,8 @@ public class Hand {
 
 	public List<Valeur> getValeurs(){
 		List<Valeur> val = new ArrayList<Valeur>();
-		for(int i =0; i<cartes.size()-1;i++){
-			val.add(cartes.get(0).getValeur());		
-		}
+		for(Carte carte : cartes)
+			val.add(carte.getValeur());
 		return val;
 	}
 }

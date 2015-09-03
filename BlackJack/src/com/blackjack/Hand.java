@@ -38,7 +38,7 @@ public class Hand {
 	public String toString(){
 		String res="";
 		for(int i=0; i<cartes.size()-1;i++){
-			res=res+cartes.get(i)+"\n";
+			res=res+cartes.get(i);
 		}
 		return res;
 	}

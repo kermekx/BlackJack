@@ -13,7 +13,7 @@ public class Jeu {
 		
 		this.joueurs = joueurs;
 		
-		Pioche pioche = new Pioche();
+		pioche = new Pioche();
 		
 		this.initHands();
 		

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class Jeu {
 	
 	private List<Joueur> joueurs;
-	private Map<Joueur, Boolean> fini = new HashMap<Joueur, Boolean>();
+	private Map<Joueur, String> fini = new HashMap<Joueur, String>();
 	
 	private Pioche pioche;
 	
@@ -36,7 +36,7 @@ public class Jeu {
 		for (Joueur joueur : joueurs) {
 			joueur.prendreCarte(pioche.piocherCarte());
 			joueur.prendreCarte(pioche.piocherCarte());
-			fini.put(joueur, false);
+			fini.put(joueur, "false");
 		}
 		
 	}
@@ -46,7 +46,7 @@ public class Jeu {
 		boolean fin = true;
 		
 		for (Joueur joueur : joueurs)
-			if (fini.get(joueur) == false)
+			if (fini.get(joueur).equals("false"))
 				fin = false;
 		
 		return fin;
@@ -55,8 +55,17 @@ public class Jeu {
 	
 	public void tour() {
 		for (Joueur joueur : joueurs)
-			if (fini.get(joueur) == false) {
-				JOptionPane.showConfirmDialog(null, joueur.toString() + "\n  voulez vous piochez?");
+			if (fini.get(joueur).equals("false")) {
+				
+				int entry = -1;
+				do {
+					entry = JOptionPane.showConfirmDialog(null, joueur.toString() + "\n  voulez vous piochez?");
+				} while (entry < 0 && entry > 1);
+				
+				if (entry == 0)
+					joueur.prendreCarte(pioche.piocherCarte());
+				else
+					fini.get(joueur).replaceAll("false", "true");
 				
 			}
 				

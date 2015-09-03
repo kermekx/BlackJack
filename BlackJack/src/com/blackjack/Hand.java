@@ -47,5 +47,15 @@ public class Hand {
 		cartes.add(carte);
 		
 	}
+	public int getSize(){
+		return cartes.size();
+	}
 	
+	public List<Valeur> getValeurs(){
+		List<Valeur> val = new ArrayList<Valeur>();
+		for(int i =0; i<cartes.size()-1;i++){
+			val.add(cartes.get(0).getValeur());		
+		}
+		return val;
+	}
 }

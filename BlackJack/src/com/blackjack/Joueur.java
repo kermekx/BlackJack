@@ -6,6 +6,10 @@ public class Joueur {
 	int pts;
 	Hand hand;
 
+	/**
+	 * Constructeur d'un joueur, initialise ses points à 0
+	 * @param pseudo choisi par le joueur 
+	 */
 	public Joueur(String pseudo) {
 		// TODO Auto-generated constructor stub
 		this.pseudo = pseudo;
@@ -13,8 +17,8 @@ public class Joueur {
 		this.hand = new Hand();
 	}
 	/**
-	 * 
-	 * @return 
+	 * Retourne le pseudo du joueur
+	 * @return le pseudo du joueur
 	 */
 	public String getPseudo() {
 		return pseudo;
@@ -32,6 +36,7 @@ public class Joueur {
 	  * @return les points des joueurs
 	  */
 	public int getPts() {
+		pts=pts+Valeur.getPoints(this.hand.getValeurs());
 		return pts;
 	}
 /**
@@ -64,5 +69,7 @@ public class Joueur {
 		Joueur toto = new Joueur("Toto");
 		System.out.println(toto.toString());
 	}
+	
+
 
 }

@@ -18,5 +18,12 @@ public class PiocheTest {
 		Assert.assertEquals(cartotest, lastCarte);
 	}
 	
+	@Test
+	public void getTaillePioche_doit_etre_52(){
+		Pioche pioche = new Pioche();
+		pioche.initPioche();
+		Assert.assertTrue(pioche.getTaillePioche()==52);
+	}
+	
 	
 }

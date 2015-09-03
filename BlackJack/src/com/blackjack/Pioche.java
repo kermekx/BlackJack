@@ -23,7 +23,9 @@ public class Pioche {
 		
 	}
 
-
+	/*
+	 * initialise le paquet avec toutes les cartes de chaque couleur et valeur différentes
+	 */
 	public void initPioche() {
 		cartes.clear();
 		for (Valeur valeur : Valeur.values())

@@ -1,6 +1,7 @@
 package com.blackjack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Pioche {
@@ -16,6 +17,12 @@ public class Pioche {
 			for (Couleur couleur : Couleur.values())
 				cartes.add(new Carte(couleur, valeur));
 		
+		
+	}
+	
+	private void shuffle() {
+		
+		Collections.shuffle(cartes);
 		
 	}
 	

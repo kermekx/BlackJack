@@ -47,7 +47,7 @@ public class Joueur {
 		this.pts = pts;
 	}
 	
-	/*
+	/**
 	 * Méthode toString qui retourne les infos du joueur
 	 * @see java.lang.Object#toString()
 	 */
@@ -56,7 +56,7 @@ public class Joueur {
 				+ ", points: " + this.getPts() + ". Main : " + this.hand.toString();
 	}
 	
-	/*
+	/**
 	 * Le joueur pioche la premiere carte du paquet et l'ajoute à sa main
 	 * 
 	 */

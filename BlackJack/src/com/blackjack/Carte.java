@@ -4,6 +4,11 @@ public class Carte {
 	
 	Couleur couleur;
 	Valeur valeur;
+	/**
+	 * Crée une carte avec sa valeur et sa couleur 
+	 * @param couleur de la carte (Pique,Carreau,Trefle,Coeur)
+	 * @param valeur de la carte (De l'AS a ROI)
+	 */
 	public Carte (Couleur couleur, Valeur valeur){
 		this.couleur = couleur;
 		this.valeur=valeur;

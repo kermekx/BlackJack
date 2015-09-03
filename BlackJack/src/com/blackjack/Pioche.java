@@ -8,7 +8,7 @@ public class Pioche {
 	
 	private List<Carte> cartes;
 	
-	/*
+	/**
 	 * génère un paquet de 52 cartes aléatoire
 	 * sans doublons
 	 */
@@ -23,7 +23,7 @@ public class Pioche {
 		
 	}
 
-	/*
+	/**
 	 * initialise le paquet avec toutes les cartes de chaque couleur et valeur différentes
 	 */
 	public void initPioche() {

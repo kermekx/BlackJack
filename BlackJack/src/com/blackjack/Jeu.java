@@ -28,11 +28,11 @@ public class Jeu {
 		while (!fini()) {
 			tour();
 		}
-		
+
 		Joueur gagnant = null;
 		int max = 0;
 		boolean egalite = false;
-		
+
 		for (Joueur joueur : joueurs) {
 			if (joueur.getPts() < 22 && joueur.getPts() > max) {
 				gagnant = joueur;
@@ -42,13 +42,16 @@ public class Jeu {
 				egalite = true;
 			}
 		}
-			
+
 		if (egalite)
-			JOptionPane.showMessageDialog(null, "Pas de gagnant suite a une egalite!");
+			JOptionPane.showMessageDialog(null,
+					"Pas de gagnant suite a une egalite!");
 		else if (gagnant == null)
-			JOptionPane.showMessageDialog(null, "Pas de gagnant! Tout le monde a depasse 21!");
+			JOptionPane.showMessageDialog(null,
+					"Pas de gagnant! Tout le monde a depasse 21!");
 		else {
-			JOptionPane.showMessageDialog(null, gagnant.getPseudo() + " a gagné avec " + max + " points!");
+			JOptionPane.showMessageDialog(null, gagnant.getPseudo()
+					+ " a gagné avec " + max + " points!");
 		}
 	}
 
@@ -57,14 +60,15 @@ public class Jeu {
 		for (Joueur joueur : joueurs) {
 			joueur.prendreCarte(pioche.piocherCarte());
 			joueur.prendreCarte(pioche.piocherCarte());
-			if (joueur.getPts()==21){
-				Joueur gagnant=new Joueur("");
+			if (joueur.getPts() == 21) {
+				Joueur gagnant = new Joueur("");
 				fini.get(joueur).setCharAt(0, 't');
 				gagnant.setPseudo(joueur.getPseudo());
-				JOptionPane.showMessageDialog(null, "BLACKJACK ! Bien joué "+joueur.getPseudo()+"!");
+				JOptionPane.showMessageDialog(null, "BLACKJACK ! Bien joué "
+						+ joueur.getPseudo() + "!");
 			}
 			fini.put(joueur, new StringBuffer("f"));
-			
+
 		}
 
 	}
@@ -82,8 +86,8 @@ public class Jeu {
 	}
 
 	public void tour() {
-		Joueur gagnant=new Joueur("");
-		
+		Joueur gagnant = new Joueur("");
+
 		for (Joueur joueur : joueurs)
 			if (fini.get(joueur).charAt(0) == 'f') {
 
@@ -95,19 +99,25 @@ public class Jeu {
 
 				if (entry == 0) {
 					Carte tirage = pioche.piocherCarte();
-					JOptionPane.showMessageDialog(null, "Vous avez pioché : " + tirage);
+					JOptionPane.showMessageDialog(null, "Vous avez pioché : "
+							+ tirage);
 					joueur.prendreCarte(tirage);
 					if (joueur.getPts() > 21) {
 						fini.get(joueur).setCharAt(0, 't');
-						JOptionPane.showMessageDialog(null, "Vous avez perdu! Votre score est de " + joueur.getPts());
+						JOptionPane.showMessageDialog(
+								null,
+								"Vous avez perdu! Votre score est de "
+										+ joueur.getPts());
 					}
 					if (joueur.getPts() == 21) {
 						fini.get(joueur).setCharAt(0, 't');
 						gagnant.setPseudo(joueur.getPseudo());
-						JOptionPane.showMessageDialog(null, "Vous avez fait "+joueur.getPts()+"!");
-						
+						JOptionPane.showMessageDialog(null, "Vous avez fait "
+								+ joueur.getPts() + "!");
+
 					}
 				} else
+
 					fini.get(joueur).setCharAt(0, 't');
 
 			}

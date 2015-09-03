@@ -15,7 +15,11 @@ public class Jeu {
 		
 		Pioche pioche = new Pioche();
 		
+		this.initHands();
 		
+		for(Joueur joueur : joueurs) {
+			System.out.println(joueur.toString());
+		}
 			
 		
 	}
@@ -23,7 +27,8 @@ public class Jeu {
 	public void initHands() {
 		
 		for (Joueur joueur : joueurs) {
-			joueur.
+			joueur.prendreCarte(pioche.piocherCarte());
+			joueur.prendreCarte(pioche.piocherCarte());
 		}
 		
 	}

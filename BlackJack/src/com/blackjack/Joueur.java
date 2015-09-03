@@ -39,8 +39,8 @@ public class Joueur {
 	 * Le joueur pioche la premiere carte du paquet et l'ajoute à sa main
 	 * 
 	 */
-	public void prendreCarte(){
-		this.hand.ajouterCarte(Main.pioche.piocherCarte());
+	public void prendreCarte(Carte carte){
+		this.hand.ajouterCarte(carte);
 		
 	}
 	

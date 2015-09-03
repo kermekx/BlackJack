@@ -40,6 +40,12 @@ public class Jeu {
 		for (Joueur joueur : joueurs) {
 			joueur.prendreCarte(pioche.piocherCarte());
 			joueur.prendreCarte(pioche.piocherCarte());
+			if (joueur.getPts()==21){
+				Joueur gagnant=new Joueur("");
+				fini.get(joueur).setCharAt(0, 't');
+				gagnant.setPseudo(joueur.getPseudo());
+				JOptionPane.showMessageDialog(null, "BLACKJACK \n"+joueur.getPseudo()+"a fait "+joueur.getPts()+", il a donc gagné! \nBravo "+gagnant.getPseudo());
+			}
 			fini.put(joueur, new StringBuffer("f"));
 		}
 
@@ -75,12 +81,12 @@ public class Jeu {
 					joueur.prendreCarte(tirage);
 					if (joueur.getPts() > 21) {
 						fini.get(joueur).setCharAt(0, 't');
-						JOptionPane.showMessageDialog(null, "Vous avez perdu! Votre score est de " + joueur.getPts());
+						JOptionPane.showMessageDialog(null, joueur.getPseudo()+"a perdu! Votre score est de " + joueur.getPts());
 					}
 					if (joueur.getPts() == 21) {
 						fini.get(joueur).setCharAt(0, 't');
 						gagnant.setPseudo(joueur.getPseudo());
-						JOptionPane.showMessageDialog(null, "Vous avez fait "+joueur.getPts()+", vous avez donc gagnez! \nBravo "+gagnant.getPseudo());
+						JOptionPane.showMessageDialog(null, joueur.getPseudo()+"a fait "+joueur.getPts()+", il a donc gagné! \nBravo! "+gagnant.getPseudo());
 						
 					}
 				} else

@@ -63,6 +63,8 @@ public class Main {
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
+			
+			next = false;
 
 			nbrJoueurs = slider.getValue();
 
@@ -82,21 +84,36 @@ public class Main {
 						+ "</center></html>", (800 / nbrJoueurs) * (i), 250));
 				boxs.add(new Box((800 / nbrJoueurs) * i + 50, 300));
 			}
+			
+			bouton = new Bouton("Valider", 350, 500,
+					new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent e) {
+
+							next = true;
+
+						}
+					});
 
 			renderer.add(label);
+			renderer.add(bouton);
 			for (Label l : labels)
 				renderer.add(l);
 			for (Box b : boxs)
 				renderer.add(b);
 
 			renderer.repaint();
-
-			for (int i = 0; i < nbrJoueurs; i++) {
-				String nomJ = JOptionPane.showInputDialog(null,
-						"Entrez le nom du joueur " + (i + 1));
-				joueurs.add(new Joueur(nomJ));
-				if (nomJ == null)
-					System.exit(0);
+			
+			while (!next)
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+			
+			for (Box b : boxs) {
+				joueurs.add(new Joueur(b.getText()));
 			}
 
 			Jeu jeu = new Jeu(joueurs);

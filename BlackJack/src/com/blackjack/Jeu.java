@@ -1,5 +1,6 @@
 package com.blackjack;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -167,7 +168,8 @@ public class Jeu {
 				JLabel label = new Label(
 						"<html><center>" + joueur.getPseudo() + " voulez vous piocher?</center></html>",
 						275, 250);
-				JButton oui = new Bouton("Oui", 175, 275, new ActionListener() {
+				label.setFont(new Font("Arial", Font.BOLD, 24));
+				JButton oui = new Bouton("Oui", 200, 275, new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent arg0) {

@@ -1,13 +1,24 @@
 package com.blackjack;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Main {
 
 	public static void main(String[] args) {
+		
+		JFrame frame = new JFrame("Black Jack");
+		frame.setSize(new Dimension(500, 400));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		JComponent renderer = new Renderer();
+		frame.getContentPane().add(renderer);
+		frame.setVisible(true);
 
 		do {
 			int nbrJoueurs = 0;

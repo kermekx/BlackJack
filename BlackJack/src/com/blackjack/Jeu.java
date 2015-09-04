@@ -50,7 +50,11 @@ public class Jeu {
 		Joueur ia = new Joueur("Banque");
 		ia.prendreCarte(pioche.piocherCarte());
 		ia.prendreCarte(pioche.piocherCarte());
-		// blackjack?
+		
+		if (ia.getPts()==21){
+			fini.get(ia).setCharAt(0, 't');
+			JOptionPane.showMessageDialog(null, "BLACKJACK ! La banque a gagnée !");
+		}
 		while (ia.getPts() < 17) {
 			ia.prendreCarte(pioche.piocherCarte());
 		}

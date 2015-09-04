@@ -220,6 +220,8 @@ public class Jeu {
 					}
 				} else
 					fini.get(joueur).setCharAt(0, 't');
+<<<<<<< HEAD
+=======
 				
 				for (JComponent carte : cartes)
 					renderer.remove(carte);
@@ -245,6 +247,7 @@ public class Jeu {
 				renderer.remove(non);
 				renderer.repaint();
 
+>>>>>>> branch 'master' of https://github.com/kermekx/BlackJack.git
 			}
 
 	}

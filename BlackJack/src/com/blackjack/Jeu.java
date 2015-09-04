@@ -13,9 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import com.blackjack.renderer.Bouton;
-import com.blackjack.renderer.Box;
 import com.blackjack.renderer.Label;
-import com.blackjack.renderer.Renderer;
 
 public class Jeu {
 

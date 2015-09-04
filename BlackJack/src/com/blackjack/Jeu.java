@@ -1,10 +1,16 @@
 package com.blackjack;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+
+import com.blackjack.renderer.Box;
+import com.blackjack.renderer.Label;
+import com.blackjack.renderer.Renderer;
 
 public class Jeu {
 
@@ -12,12 +18,23 @@ public class Jeu {
 	private Map<Joueur, StringBuffer> fini = new HashMap<Joueur, StringBuffer>();
 
 	private Pioche pioche;
+	private JComponent renderer;
 
-	public Jeu(List<Joueur> joueurs) {
-		
-		
-		
+	public Jeu(List<Joueur> joueurs, JComponent renderer) {
+
+		this.renderer = renderer;
 		this.joueurs = joueurs;
+
+		List<Label> labels = new ArrayList<Label>();
+		for (int i = 0; i < joueurs.size(); i++) {
+			labels.add(new Label("<html><center>" + joueurs.get(i).getPseudo()
+					+ " :</center></html>", (800 / joueurs.size()) * (i), 300));
+		}
+
+		for (Label l : labels)
+			renderer.add(l);
+		
+		renderer.repaint();
 
 		pioche = new Pioche();
 
@@ -33,12 +50,12 @@ public class Jeu {
 		Joueur ia = new Joueur("Banque");
 		ia.prendreCarte(pioche.piocherCarte());
 		ia.prendreCarte(pioche.piocherCarte());
-		//blackjack?
-		while (ia.getPts()<17){
+		// blackjack?
+		while (ia.getPts() < 17) {
 			ia.prendreCarte(pioche.piocherCarte());
 		}
 		joueurs.add(ia);
-		
+
 		Joueur gagnant = null;
 		int max = 0;
 		boolean egalite = false;

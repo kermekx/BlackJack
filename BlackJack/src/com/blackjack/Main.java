@@ -135,7 +135,7 @@ public class Main {
 
 			next = false;
 			
-			Jeu jeu = new Jeu(joueurs);
+			Jeu jeu = new Jeu(joueurs, renderer);
 			
 		} while (JOptionPane.showConfirmDialog(null, "voulez-vous rejouer?") == 0);
 

@@ -154,7 +154,7 @@ public class Main {
 			Jeu jeu = new Jeu(joueurs, renderer);
 			
 		} while (JOptionPane.showConfirmDialog(null, "voulez-vous rejouer?") == 0);
-
+		frame.dispose();
 	}
 
 }

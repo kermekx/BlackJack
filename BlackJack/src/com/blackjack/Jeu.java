@@ -28,12 +28,12 @@ public class Jeu {
 		List<Label> labels = new ArrayList<Label>();
 		for (int i = 0; i < joueurs.size(); i++) {
 			labels.add(new Label("<html><center>" + joueurs.get(i).getPseudo()
-					+ " :</center></html>", (800 / joueurs.size()) * (i), 300));
+					+ "</center></html>", (800 / joueurs.size()) * (i), 300));
 		}
 
 		for (Label l : labels)
 			renderer.add(l);
-		
+
 		renderer.repaint();
 
 		pioche = new Pioche();

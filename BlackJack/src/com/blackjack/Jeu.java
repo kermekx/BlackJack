@@ -24,6 +24,8 @@ public class Jeu {
 
 	private Pioche pioche;
 	private JComponent renderer;
+	private List<JComponent> cartes;
+	private List<Label> labels;
 	
 	private static boolean next = false;
 	private static boolean choix = false;
@@ -33,7 +35,7 @@ public class Jeu {
 		this.renderer = renderer;
 		this.joueurs = joueurs;
 
-		List<Label> labels = new ArrayList<Label>();
+		labels = new ArrayList<Label>();
 		for (int i = 0; i < joueurs.size(); i++) {
 			labels.add(new Label("<html><center>" + joueurs.get(i).getPseudo()
 					+ "</center></html>", (800 / joueurs.size()) * (i), 300));
@@ -46,7 +48,7 @@ public class Jeu {
 
 		this.initHands();
 
-		List<JComponent> cartes = new ArrayList<JComponent>();
+		cartes = new ArrayList<JComponent>();
 
 		for (int i = 0; i < joueurs.size(); i++)
 			for (int j = 0; j < joueurs.get(i).getHand().getCartes().size(); j++)
@@ -165,9 +167,9 @@ public class Jeu {
 				choix = false;
 				
 				JLabel label = new Label(
-						"<html><center>voulez vous piocher?</center></html>",
+						"<html><center>" + joueur.getPseudo() + "voulez vous piocher?</center></html>",
 						275, 250);
-				JButton oui = new Bouton("Oui", 300, 150, new ActionListener() {
+				JButton oui = new Bouton("Oui", 175, 275, new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
@@ -176,7 +178,7 @@ public class Jeu {
 					}
 				});
 
-				JButton non = new Bouton("Oui", 300, 150, new ActionListener() {
+				JButton non = new Bouton("Non", 475, 275, new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
@@ -218,12 +220,34 @@ public class Jeu {
 					}
 				} else
 					fini.get(joueur).setCharAt(0, 't');
+<<<<<<< HEAD
+=======
 				
+				for (JComponent carte : cartes)
+					renderer.remove(carte);
+				cartes = new ArrayList<JComponent>();
+				for (int i = 0; i < joueurs.size(); i++)
+					for (int j = 0; j < joueurs.get(i).getHand().getCartes().size(); j++)
+						cartes.add(joueurs
+								.get(i)
+								.getHand()
+								.getCartes()
+								.get(j)
+								.getImage((800 / joueurs.size()) * (i) + 75,
+										350 + 30 * j));
+				for (JComponent carte : cartes)
+					renderer.add(carte);
+				for (int i = 0; i < joueurs.size(); i++)
+					labels.get(i).setText(
+							"<html><center>" + joueurs.get(i).getPseudo() + " : "
+									+ joueurs.get(i).getPts()
+									+ " Points</center></html>");
 				renderer.remove(label);
 				renderer.remove(oui);
 				renderer.remove(non);
 				renderer.repaint();
 
+>>>>>>> branch 'master' of https://github.com/kermekx/BlackJack.git
 			}
 
 	}

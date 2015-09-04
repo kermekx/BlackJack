@@ -1,13 +1,18 @@
 package com.blackjack;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import com.blackjack.renderer.Bouton;
 import com.blackjack.renderer.Box;
 import com.blackjack.renderer.Label;
 import com.blackjack.renderer.Renderer;
@@ -19,6 +24,9 @@ public class Jeu {
 
 	private Pioche pioche;
 	private JComponent renderer;
+	
+	private static boolean next = false;
+	private static boolean choix = false;
 
 	public Jeu(List<Joueur> joueurs, JComponent renderer) {
 
@@ -42,15 +50,23 @@ public class Jeu {
 
 		for (int i = 0; i < joueurs.size(); i++)
 			for (int j = 0; j < joueurs.get(i).getHand().getCartes().size(); j++)
-				cartes.add(joueurs.get(i).getHand().getCartes().get(j)
-						.getImage((800 / joueurs.size()) * (i) + 75, 350 + 20 * j));
-		
+				cartes.add(joueurs
+						.get(i)
+						.getHand()
+						.getCartes()
+						.get(j)
+						.getImage((800 / joueurs.size()) * (i) + 75,
+								350 + 30 * j));
+
 		for (JComponent carte : cartes)
 			renderer.add(carte);
-		
+
 		for (int i = 0; i < joueurs.size(); i++)
-			labels.get(i).setText("<html><center>" + joueurs.get(i).getPseudo() + " : " + joueurs.get(i).getPts() + " Points</center></html>");
-		
+			labels.get(i).setText(
+					"<html><center>" + joueurs.get(i).getPseudo() + " : "
+							+ joueurs.get(i).getPts()
+							+ " Points</center></html>");
+
 		renderer.repaint();
 
 		while (!fini()) {
@@ -145,13 +161,43 @@ public class Jeu {
 		for (Joueur joueur : joueurs)
 			if (fini.get(joueur).charAt(0) == 'f') {
 
-				int entry = -1;
-				do {
-					entry = JOptionPane.showConfirmDialog(null,
-							joueur.toString() + "\n  voulez vous piocher?");
-				} while (entry < 0 && entry > 1);
+				next = false;
+				choix = false;
+				
+				JLabel label = new Label(
+						"<html><center>voulez vous piocher?</center></html>",
+						275, 250);
+				JButton oui = new Bouton("Oui", 300, 150, new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						next = true;
+						choix = true;
+					}
+				});
 
-				if (entry == 0) {
+				JButton non = new Bouton("Oui", 300, 150, new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						next = true;
+						choix = false;
+					}
+				});
+				
+				renderer.add(label);
+				renderer.add(oui);
+				renderer.add(non);
+				renderer.repaint();
+				
+				while (!next)
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					}
+
+				if (choix) {
 					Carte tirage = pioche.piocherCarte();
 					JOptionPane.showMessageDialog(null, "Vous avez pioché : "
 							+ tirage);
@@ -171,8 +217,12 @@ public class Jeu {
 
 					}
 				} else
-
 					fini.get(joueur).setCharAt(0, 't');
+				
+				renderer.remove(label);
+				renderer.remove(oui);
+				renderer.remove(non);
+				renderer.repaint();
 
 			}
 

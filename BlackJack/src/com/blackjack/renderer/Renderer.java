@@ -9,7 +9,7 @@ public class Renderer extends JComponent {
 	
 		public Renderer() {
 			
-			this.setSize(new Dimension(500, 400));
+			this.setSize(new Dimension(800, 600));
 			
 		}
 	

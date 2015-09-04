@@ -8,6 +8,9 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import com.blackjack.renderer.Label;
+import com.blackjack.renderer.Renderer;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -15,6 +18,7 @@ public class Main {
 		JFrame frame = new JFrame("Black Jack");
 		frame.setSize(new Dimension(500, 400));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		JComponent renderer = new Renderer();
 		frame.getContentPane().add(renderer);
@@ -25,6 +29,8 @@ public class Main {
 
 			do {
 
+				renderer.add(new Label("<html><center>Entrez le nombre de joueurs<br />(entre 1 à 4)</center></html>", 125, 50));
+				renderer.repaint();
 				String nJ = JOptionPane.showInputDialog(null,
 						"Entrez le nombre de joueurs\n(entre 1 à 4)");
 

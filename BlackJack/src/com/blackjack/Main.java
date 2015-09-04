@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +55,21 @@ public class Main {
 					JFrame regle = new JFrame("Règles du Black-Jack");
 					JLabel texte = new Label("<html><ul><li>C'est un jeu qui se joue avec 52 cartes <br/><br/></li> <li>  Le nombre de joueurs est de 1 à 4 + une banque <br/><br/></li> <li> Chaque carte à sa propre valeur sauf les têtes qui valent 10 <br/><br/></li> <li> l'As peut prendre la valeur 1 ou 11, suivant le nombre de points restants<br/><br/></li> <li> Le but est de s'approcher le plus de 21 sans le dépasser <br/><br/></li> <li> La partie débute en distribuant 2 cartes à chaque joueur, la banque en reçoit 2 également après les joueurs <br/><br/></li><li> Si le score est atteint dès la distribution des cartes, il y a BlackJack </li> </ul> </html> ", 50, 50);
 					regle.setPreferredSize(new Dimension(400, 400));
+					regle.addWindowFocusListener(new WindowFocusListener() {
+						
+						@Override
+						public void windowLostFocus(WindowEvent e) {
+							
+							((JFrame) e.getSource()).dispose();
+							
+						}
+						
+						@Override
+						public void windowGainedFocus(WindowEvent arg0) {
+							// TODO Auto-generated method stub
+							
+						}
+					});
 					regle.add(texte);
 					regle.pack();
 					regle.setLocationRelativeTo(null);					

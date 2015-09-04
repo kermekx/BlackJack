@@ -14,7 +14,9 @@ public class Jeu {
 	private Pioche pioche;
 
 	public Jeu(List<Joueur> joueurs) {
-
+		
+		
+		
 		this.joueurs = joueurs;
 
 		pioche = new Pioche();
@@ -28,7 +30,15 @@ public class Jeu {
 		while (!fini()) {
 			tour();
 		}
-
+		Joueur ia = new Joueur("Banque");
+		ia.prendreCarte(pioche.piocherCarte());
+		ia.prendreCarte(pioche.piocherCarte());
+		//blackjack?
+		while (ia.getPts()<17){
+			ia.prendreCarte(pioche.piocherCarte());
+		}
+		joueurs.add(ia);
+		
 		Joueur gagnant = null;
 		int max = 0;
 		boolean egalite = false;

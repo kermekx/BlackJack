@@ -1,5 +1,9 @@
 package com.blackjack;
 
+import javax.swing.JComponent;
+
+import com.blackjack.renderer.RenduCarte;
+
 public class Carte {
 
 	Couleur couleur;
@@ -60,6 +64,12 @@ public class Carte {
 	 */
 	public String toString() {
 		return "" + valeur + " de " + couleur;
+	}
+	
+	public JComponent getImage() {
+		
+		return new RenduCarte(valeur, couleur);
+		
 	}
 
 }

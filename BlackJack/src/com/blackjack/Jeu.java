@@ -78,7 +78,6 @@ public class Jeu {
 		ia.prendreCarte(pioche.piocherCarte());
 
 		if (ia.getPts() == 21) {
-			fini.get(ia).setCharAt(0, 't');
 			JOptionPane.showMessageDialog(null,
 					"BLACKJACK ! La banque a gagnée avec :" + ia.getPts()
 							+ "points !");

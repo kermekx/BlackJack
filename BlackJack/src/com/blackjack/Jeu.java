@@ -34,15 +34,24 @@ public class Jeu {
 		for (Label l : labels)
 			renderer.add(l);
 
-		renderer.repaint();
-
 		pioche = new Pioche();
 
 		this.initHands();
 
-		for (Joueur joueur : joueurs) {
-			System.out.println(joueur.toString());
-		}
+		List<JComponent> cartes = new ArrayList<JComponent>();
+
+		for (int i = 0; i < joueurs.size(); i++)
+			for (int j = 0; j < joueurs.get(i).getHand().getCartes().size(); j++)
+				cartes.add(joueurs.get(i).getHand().getCartes().get(j)
+						.getImage((800 / joueurs.size()) * (i) + 75, 350 + 20 * j));
+		
+		for (JComponent carte : cartes)
+			renderer.add(carte);
+		
+		for (int i = 0; i < joueurs.size(); i++)
+			labels.get(i).setText("<html><center>" + joueurs.get(i).getPseudo() + " : " + joueurs.get(i).getPts() + " Points</center></html>");
+		
+		renderer.repaint();
 
 		while (!fini()) {
 			tour();
@@ -50,10 +59,12 @@ public class Jeu {
 		Joueur ia = new Joueur("Banque");
 		ia.prendreCarte(pioche.piocherCarte());
 		ia.prendreCarte(pioche.piocherCarte());
-		
-		if (ia.getPts()==21){
+
+		if (ia.getPts() == 21) {
 			fini.get(ia).setCharAt(0, 't');
-			JOptionPane.showMessageDialog(null, "BLACKJACK ! La banque a gagnée avec :"+ ia.getPts()+"points !");
+			JOptionPane.showMessageDialog(null,
+					"BLACKJACK ! La banque a gagnée avec :" + ia.getPts()
+							+ "points !");
 		}
 		while (ia.getPts() < 17) {
 			ia.prendreCarte(pioche.piocherCarte());
@@ -84,13 +95,18 @@ public class Jeu {
 			JOptionPane.showMessageDialog(null, gagnant.getPseudo()
 					+ " a gagné avec " + max + " points!");
 		}
-		String s="Récapitulatif : \n";
-		for(int i=0;i<joueurs.size();i++){
-			s=s+  joueurs.get(i).getPseudo() + " a fini avec " +joueurs.get(i).getPts()+ " points!\n";
+		String s = "Récapitulatif : \n";
+		for (int i = 0; i < joueurs.size(); i++) {
+			s = s + joueurs.get(i).getPseudo() + " a fini avec "
+					+ joueurs.get(i).getPts() + " points!\n";
 		}
 		JOptionPane.showMessageDialog(null, s);
+
+		for (Label l : labels)
+			renderer.remove(l);
+		for (JComponent carte : cartes)
+			renderer.remove(carte);
 	}
-		
 
 	public void initHands() {
 

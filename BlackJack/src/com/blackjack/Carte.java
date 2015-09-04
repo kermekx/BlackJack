@@ -1,7 +1,11 @@
 package com.blackjack;
 
-import javax.swing.JComponent;
+import java.awt.Dimension;
 
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+
+import com.blackjack.renderer.Renderer;
 import com.blackjack.renderer.RenduCarte;
 
 public class Carte {
@@ -66,9 +70,9 @@ public class Carte {
 		return "" + valeur + " de " + couleur;
 	}
 	
-	public JComponent getImage() {
+	public JComponent getImage(int posX, int posY) {
 		
-		return new RenduCarte(valeur, couleur);
+		return new RenduCarte(valeur, couleur, posX, posY);
 		
 	}
 

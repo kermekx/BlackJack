@@ -109,7 +109,6 @@ public class Jeu {
 					}
 				} else
 					fini.get(joueur).setCharAt(0, 't');
-
 			}
 
 	}

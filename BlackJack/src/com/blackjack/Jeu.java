@@ -169,7 +169,7 @@ public class Jeu {
 						"<html><center>" + joueur.getPseudo() + " voulez vous piocher?</center></html>",
 						275, 250);
 				label.setFont(new Font("Arial", Font.BOLD, 24));
-				JButton oui = new Bouton("Oui", 200, 275, new ActionListener() {
+				JButton oui = new Bouton("Oui", 175, 275, new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
@@ -178,7 +178,7 @@ public class Jeu {
 					}
 				});
 
-				JButton non = new Bouton("Non", 475, 275, new ActionListener() {
+				JButton non = new Bouton("Non", 525, 275, new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent arg0) {

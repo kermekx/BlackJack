@@ -165,7 +165,7 @@ public class Jeu {
 				choix = false;
 				
 				JLabel label = new Label(
-						"<html><center>" + joueur.getPseudo() + "voulez vous piocher?</center></html>",
+						"<html><center>" + joueur.getPseudo() + " voulez vous piocher?</center></html>",
 						275, 250);
 				JButton oui = new Bouton("Oui", 175, 275, new ActionListener() {
 					
@@ -199,22 +199,13 @@ public class Jeu {
 
 				if (choix) {
 					Carte tirage = pioche.piocherCarte();
-					JOptionPane.showMessageDialog(null, "Vous avez pioché : "
-							+ tirage);
 					joueur.prendreCarte(tirage);
 					if (joueur.getPts() > 21) {
 						fini.get(joueur).setCharAt(0, 't');
-						JOptionPane.showMessageDialog(
-								null,
-								"Vous avez perdu! Votre score est de "
-										+ joueur.getPts());
 					}
 					if (joueur.getPts() == 21) {
 						fini.get(joueur).setCharAt(0, 't');
 						gagnant.setPseudo(joueur.getPseudo());
-						JOptionPane.showMessageDialog(null, "Vous avez fait "
-								+ joueur.getPts() + "!");
-
 					}
 				} else
 					fini.get(joueur).setCharAt(0, 't');

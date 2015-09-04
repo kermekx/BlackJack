@@ -15,8 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JSlider;
 
-import org.omg.CORBA.TypeCodePackage.Bounds;
-
 import com.blackjack.renderer.Bouton;
 import com.blackjack.renderer.Box;
 import com.blackjack.renderer.Image;
@@ -33,6 +31,7 @@ public class Main {
 		JFrame frame = new JFrame("Black Jack");
 		
 		frame.setSize(new Dimension(800, 600));
+		frame.getContentPane().setBackground(new Color(10, 120, 55));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);

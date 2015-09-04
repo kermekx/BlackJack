@@ -1,5 +1,6 @@
 package com.blackjack;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -30,11 +31,12 @@ public class Main {
 	public static void main(String[] args) {
 
 		JFrame frame = new JFrame("Black Jack");
+		
 		frame.setSize(new Dimension(800, 600));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
-		JComponent renderer = new Renderer();
+		 JComponent renderer = new Renderer();
 		frame.getContentPane().add(renderer);
 		frame.setVisible(true);
 
@@ -45,6 +47,24 @@ public class Main {
 					"<html><center>Entrez le nombre de joueurs<br />(entre 1 à 4)</center></html>",
 					275, 250);
 			JSlider slider = new Slider(1, 4, 275, 300);
+			JButton regles = new Bouton("Règles du jeu", 30, 20, new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					JFrame regle = new JFrame("Règles du Black-Jack");
+					JLabel texte = new Label("<html><ul><li>C'est un jeu qui se joue avec 52 cartes <br/><br/></li> <li>  Le nombre de joueurs est de 1 à 4 + une banque <br/><br/></li> <li> Chaque carte à sa propre valeur sauf les têtes qui valent 10 <br/><br/></li> <li> l'As peut prendre la valeur 1 ou 11, suivant le nombre de points restants<br/><br/></li> <li> Le but est de s'approcher le plus de 21 sans le dépasser <br/><br/></li> <li> La partie débute en distribuant 2 cartes à chaque joueur, la banque en reçoit 2 également après les joueurs <br/><br/></li><li> Si le score est atteint dès la distribution des cartes, il y a BlackJack </li> </ul> </html> ", 50, 50);
+					regle.setPreferredSize(new Dimension(400, 400));
+					regle.add(texte);
+					regle.pack();
+					regle.setLocationRelativeTo(null);					
+					regle.setVisible(true);
+					regle.repaint();
+					
+				}
+			});
+			regles.setSize(150,30);
+			regles.setBackground(Color.LIGHT_GRAY);	
+			
 			JButton bouton = new Bouton("Valider", 350, 500,
 					new ActionListener() {
 
@@ -62,6 +82,7 @@ public class Main {
 			renderer.add(slider);
 			renderer.add(bouton);
 			renderer.add(image);
+			renderer.add(regles);
 			renderer.repaint();
 
 			while (!next)
@@ -87,8 +108,8 @@ public class Main {
 					275, 250);
 
 			for (int i = 0; i < nbrJoueurs; i++) {
-				labels.add(new Label("<html><center>joueur " + (i + 1)
-						+ " :</center></html>", (800 / nbrJoueurs) * (i), 300));
+				labels.add(new Label("<html><center>Joueur " + (i + 1)
+						+ " :</center></html>", (800 / nbrJoueurs) * (i)-25, 300));
 				boxs.add(new Box((800 / nbrJoueurs) * i + 50, 350));
 			}
 			
@@ -135,10 +156,10 @@ public class Main {
 
 			next = false;
 			
-			Jeu jeu = new Jeu(joueurs);
+			Jeu jeu = new Jeu(joueurs, renderer);
 			
 		} while (JOptionPane.showConfirmDialog(null, "voulez-vous rejouer?") == 0);
-
+		frame.dispose();
 	}
 
 }

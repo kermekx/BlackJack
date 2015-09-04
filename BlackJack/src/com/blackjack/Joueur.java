@@ -84,4 +84,8 @@ public class Joueur {
 		System.out.println(toto.toString());
 	}
 
+	public Hand getHand() {
+		return hand;
+	}
+
 }

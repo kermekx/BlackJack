@@ -81,7 +81,7 @@ public class Main {
 
 			for (int i = 0; i < nbrJoueurs; i++) {
 				labels.add(new Label("<html><center>joueur " + (i + 1)
-						+ "</center></html>", (800 / nbrJoueurs) * (i), 250));
+						+ " :</center></html>", (800 / nbrJoueurs) * (i), 250));
 				boxs.add(new Box((800 / nbrJoueurs) * i + 50, 300));
 			}
 			
@@ -105,6 +105,7 @@ public class Main {
 
 			renderer.repaint();
 			
+			
 			while (!next)
 				try {
 					Thread.sleep(10);
@@ -115,8 +116,20 @@ public class Main {
 			for (Box b : boxs) {
 				joueurs.add(new Joueur(b.getText()));
 			}
+			
+			renderer.remove(label);
+			renderer.remove(bouton);
+			for (Label l : labels)
+				renderer.remove(l);
+			for (Box b : boxs)
+				renderer.remove(b);
+			
+			renderer.repaint();
 
+			next = false;
+			
 			Jeu jeu = new Jeu(joueurs);
+			
 		} while (JOptionPane.showConfirmDialog(null, "voulez-vous rejouer?") == 0);
 
 	}

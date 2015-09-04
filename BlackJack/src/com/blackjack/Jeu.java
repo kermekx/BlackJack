@@ -78,7 +78,6 @@ public class Jeu {
 		ia.prendreCarte(pioche.piocherCarte());
 
 		if (ia.getPts() == 21) {
-			fini.get(ia).setCharAt(0, 't');
 			JOptionPane.showMessageDialog(null,
 					"BLACKJACK ! La banque a gagnée avec :" + ia.getPts()
 							+ "points !");
@@ -127,12 +126,6 @@ public class Jeu {
 			JOptionPane.showMessageDialog(null, gagnant.getPseudo()
 					+ " a gagné avec " + max + " points!");
 		}
-		String s = "Récapitulatif : \n";
-		for (int i = 0; i < joueurs.size(); i++) {
-			s = s + joueurs.get(i).getPseudo() + " a fini avec "
-					+ joueurs.get(i).getPts() + " points!\n";
-		}
-		JOptionPane.showMessageDialog(null, s);
 
 		for (Label l : labels)
 			renderer.remove(l);

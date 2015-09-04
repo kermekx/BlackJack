@@ -14,7 +14,9 @@ public class Jeu {
 	private Pioche pioche;
 
 	public Jeu(List<Joueur> joueurs) {
-
+		
+		
+		
 		this.joueurs = joueurs;
 
 		pioche = new Pioche();

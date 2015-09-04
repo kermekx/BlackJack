@@ -86,6 +86,21 @@ public class Jeu {
 		while (ia.getPts() < 17) {
 			ia.prendreCarte(pioche.piocherCarte());
 		}
+		
+		for (JComponent carte : cartes)
+			renderer.remove(carte);
+		
+		for (int i = 0; i < ia.getHand().getSize(); i ++)
+			cartes.add(ia.getHand().getCartes().get(i).getImage(600, 75 + i * 30));
+		
+		for (JComponent carte : cartes)
+			renderer.add(carte);
+		
+		JLabel banque = new Label("<html><center>Banque : " + ia.getPts() + "</center></html>", 500, 25);
+		renderer.add(banque);
+		
+		renderer.repaint();
+			
 		joueurs.add(ia);
 
 		Joueur gagnant = null;
@@ -123,6 +138,7 @@ public class Jeu {
 			renderer.remove(l);
 		for (JComponent carte : cartes)
 			renderer.remove(carte);
+		renderer.remove(banque);
 	}
 
 	public void initHands() {

@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSlider;
 
 import com.blackjack.renderer.Bouton;
+import com.blackjack.renderer.Box;
 import com.blackjack.renderer.Label;
 import com.blackjack.renderer.Renderer;
 import com.blackjack.renderer.Slider;
@@ -63,11 +64,32 @@ public class Main {
 					e1.printStackTrace();
 				}
 
-			
 			nbrJoueurs = slider.getValue();
-			System.out.println(nbrJoueurs);
+
+			renderer.remove(label);
+			renderer.remove(slider);
+			renderer.remove(bouton);
 
 			List<Joueur> joueurs = new ArrayList<Joueur>();
+			List<Label> labels = new ArrayList<Label>();
+			List<Box> boxs = new ArrayList<Box>();
+			label = new Label(
+					"<html><center>Entrez le pseudo des joueurs</center></html>",
+					275, 50);
+
+			for (int i = 0; i < nbrJoueurs; i++) {
+				labels.add(new Label("<html><center>joueur " + (i + 1)
+						+ "</center></html>", (800 / nbrJoueurs) * (i), 250));
+				boxs.add(new Box((800 / nbrJoueurs) * i + 50, 300));
+			}
+
+			renderer.add(label);
+			for (Label l : labels)
+				renderer.add(l);
+			for (Box b : boxs)
+				renderer.add(b);
+
+			renderer.repaint();
 
 			for (int i = 0; i < nbrJoueurs; i++) {
 				String nomJ = JOptionPane.showInputDialog(null,

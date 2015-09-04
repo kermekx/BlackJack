@@ -1,5 +1,6 @@
 package com.blackjack;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -30,6 +31,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		JFrame frame = new JFrame("Black Jack");
+		
 		frame.setSize(new Dimension(800, 600));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
@@ -45,7 +47,7 @@ public class Main {
 					"<html><center>Entrez le nombre de joueurs<br />(entre 1 à 4)</center></html>",
 					275, 250);
 			JSlider slider = new Slider(1, 4, 275, 300);
-			JButton regles = new Bouton("Règles", 50, 500, new ActionListener() {
+			JButton regles = new Bouton("Règles du jeu", 30, 20, new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
@@ -60,6 +62,9 @@ public class Main {
 					
 				}
 			});
+			regles.setSize(150,30);
+			regles.setBackground(Color.LIGHT_GRAY);	
+			
 			JButton bouton = new Bouton("Valider", 350, 500,
 					new ActionListener() {
 

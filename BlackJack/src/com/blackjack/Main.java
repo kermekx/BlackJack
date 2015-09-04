@@ -103,8 +103,8 @@ public class Main {
 					275, 250);
 
 			for (int i = 0; i < nbrJoueurs; i++) {
-				labels.add(new Label("<html><center>joueur " + (i + 1)
-						+ " :</center></html>", (800 / nbrJoueurs) * (i), 300));
+				labels.add(new Label("<html><center>Joueur " + (i + 1)
+						+ " :</center></html>", (800 / nbrJoueurs) * (i)-25, 300));
 				boxs.add(new Box((800 / nbrJoueurs) * i + 50, 350));
 			}
 			
